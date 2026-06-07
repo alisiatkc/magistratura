@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>M&G Lab | Мобильные и игровые технологии · Исследование</title>
+    <!-- Google Fonts: пространство, гротеск -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0B0E1A;  /* глубокий тёмный фон */
+            color: #EDF2FB;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        /* градиентные акценты */
+        :root {
+            --neon-blue: #3B82F6;
+            --neon-purple: #8B5CF6;
+            --glass-bg: rgba(18, 22, 35, 0.55);
+            --glass-border: rgba(59, 130, 246, 0.2);
+            --card-blur: blur(10px);
+            --shadow-glow: 0 20px 35px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.1);
+            --transition-default: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* стилизованный градиентный текст */
+        .gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 20%, #3B82F6 70%, #A855F7 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+
+        /* Hero – стеклянный, с динамикой */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-backdrop {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 80%;
+            height: 120%;
+            background: radial-gradient(circle at 70% 30%, rgba(59,130,246,0.15), transparent 70%);
+            filter: blur(70px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #3B82F6;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 4.2rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #C7D3E6;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* карточные сетки с эффектом стекла */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--card-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 2rem;
+            transition: var(--transition-default);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 3rem 0;
+        }
+
+        .research-card {
+            padding: 2rem 1.6rem;
+            background: rgba(12, 16, 28, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 2rem;
+            transition: all 0.25s ease;
+        }
+
+        .research-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(20, 26, 45, 0.7);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.4);
+        }
+
+        .card-icon {
+            background: rgba(59, 130, 246, 0.15);
+            width: 52px;
+            height: 52px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: #3B82F6;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin: 2rem 0 1rem;
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .question-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .question-item {
+            flex: 1;
+            background: rgba(18, 22, 35, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 1.2rem;
+            padding: 1.4rem 1.6rem;
+            border-left: 4px solid #3B82F6;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-block {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #fff, #8B5CF6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .badge {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: rgba(59, 130, 246, 0.2);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            letter-spacing: 0.8px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            font-size: 0.8rem;
+            color: #8696B0;
+        }
+
+        @media (max-width: 900px) {
+            .grid-3, .grid-2, .stat-row, .question-flex {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-backdrop"></div>
+    <div class="container hero-content">
+        <div class="eyebrow"># EDGE RESEARCH · 2026</div>
+        <h1>МОБИЛЬНЫЕ И ИГРОВЫЕ<br><span class="gradient-text">ТЕХНОЛОГИИ</span></h1>
+        <div class="hero-desc">
+            Как мобильные приложения и игровые механики трансформируют образовательную среду педагогического технопарка.
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+        <!-- тема исследования -->
+        <div class="research-card" style="margin: 2rem 0;">
+            <div class="badge">🔬 ТЕМА ИССЛЕДОВАНИЯ</div>
+            <h2 style="margin: 0.5rem 0 1rem;">Игровые механики и мобильные приложения как инструмент сопровождения проектной деятельности студентов в педагогическом технопарке</h2>
+            <p style="color: #B9C7DD; font-size: 1rem; line-height: 1.5;">В эпоху цифровой трансформации мобильные устройства и геймификация меняют не только инструментарий, но и саму структуру образовательной среды. Проект исследует эти изменения в контексте педагогического технопарка «Кванториум им. К.Д. Ушинского» РГПУ им. А.И. Герцена.</p>
+        </div>
+
+        <!-- ключевые вопросы -->
+        <div>
+            <h2>Ключевые вопросы исследования</h2>
+            <div class="question-flex">
+                <div class="question-item">
+                    <p style="font-weight: 600; margin-bottom: 6px;">❓ Как влияют мобильные технологии на образовательную среду?</p>
+                    <small>Расширяют возможности или приводят к структурной трансформации?</small>
+                </div>
+                <div class="question-item">
+                    <p style="font-weight: 600; margin-bottom: 6px;">❓ Смогут ли мобильные решения потеснить ПК?</p>
+                    <small>В каких сценариях мобильные устройства уже эффективнее, а где пока уступают?</small>
+                </div>
+                <div class="question-item">
+                    <p style="font-weight: 600; margin-bottom: 6px;">❓ Какие игровые механики повышают вовлечённость?</p>
+                    <small>Баллы, уровни, достижения — что работает в образовательном контексте?</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- направления исследования / 3 колонки -->
+        <div class="grid-3">
+            <div class="research-card">
+                <div class="card-icon" data-feather="smartphone"></div>
+                <h3>Мобильный трекинг проектов</h3>
+                <p>Сравнение мобильных приложений для управления проектами (канбан-доски, коммуникация) с ПК‑решениями.</p>
+            </div>
+            <div class="research-card">
+                <div class="card-icon" data-feather="award"></div>
+                <h3>Геймификация в технопарке</h3>
+                <p>Внедрение игровых механик (рейтинги, достижения) в процессы сопровождения студенческих проектов.</p>
+            </div>
+            <div class="research-card">
+                <div class="card-icon" data-feather="layers"></div>
+                <h3>Прототип мобильного модуля</h3>
+                <p>Разработка MVP для регистрации проектов, обратной связи и хаба готовых продуктов.</p>
+            </div>
+        </div>
+
+        <!-- гипотезы со статистикой -->
+        <div>
+            <h2>Гипотезы исследования</h2>
+            <div class="stat-row">
+                <div class="stat-block">
+                    <div class="stat-number">+37%</div>
+                    <p style="font-weight: 500; margin-top: 8px;">активности студентов (гипотеза)</p>
+                    <small>мобильные уведомления + быстрая фиксация</small>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">🎮</div>
+                    <p style="font-weight: 500; margin-top: 8px;">геймификация → внутренняя мотивация</p>
+                    <small>баллы, уровни, достижения</small>
+                </div>
+                <div class="stat-block">
+                    <div class="stat-number">📱</div>
+                    <p style="font-weight: 500; margin-top: 8px;">Мобильные ≠ замена ПК</p>
+                    <small>но доминируют в быстрых сценариях</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- ожидаемые результаты 2 колонки -->
+        <div>
+            <h2>Ожидаемые результаты</h2>
+            <div class="grid-2">
+                <div class="research-card" style="padding: 1.5rem;">
+                    <div class="badge" style="background: rgba(139,92,246,0.2);">📘 ТЕОРЕТИЧЕСКИЙ</div>
+                    <h3 style="margin-top: 6px;">Обоснование структурных изменений</h3>
+                    <p>Как мобильные и игровые технологии трансформируют связи между участниками проектной деятельности.</p>
+                </div>
+                <div class="research-card" style="padding: 1.5rem;">
+                    <div class="badge" style="background: rgba(139,92,246,0.2);">⚙️ ПРИКЛАДНОЙ</div>
+                    <h3 style="margin-top: 6px;">Функциональные требования</h3>
+                    <p>Спецификация для интеграции мобильных инструментов в цифровую образовательную среду технопарка.</p>
+                </div>
+                <div class="research-card" style="padding: 1.5rem;">
+                    <div class="badge" style="background: rgba(139,92,246,0.2);">📊 ЭМПИРИЧЕСКИЙ</div>
+                    <h3 style="margin-top: 6px;">Сравнительный анализ</h3>
+                    <p>Опросы студентов о восприятии мобильных vs ПК-решений, влиянии геймификации на мотивацию.</p>
+                </div>
+                <div class="research-card" style="padding: 1.5rem;">
+                    <div class="badge" style="background: rgba(139,92,246,0.2);">🧩 МЕТОДИЧЕСКИЙ</div>
+                    <h3 style="margin-top: 6px;">Рекомендации по интеграции</h3>
+                    <p>Сценарии использования мобильных устройств и игровых механик в проектной деятельности.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- связь с магистерским исследованием (glass-блок) -->
+        <div class="glass-card" style="padding: 2.5rem; margin: 3rem 0; background: rgba(12, 16, 28, 0.65);">
+            <div class="card-icon" style="background: rgba(59,130,246,0.3);" data-feather="link-2"></div>
+            <h2 style="margin: 0.5rem 0 1rem;">Связь с магистерским исследованием</h2>
+            <p style="font-size: 1rem;">Данная работа является расширением магистерской диссертации, посвящённой проектированию цифровой образовательной среды для проектной деятельности в педагогическом технопарке «Кванториум им. К.Д. Ушинского». Мобильные и игровые технологии рассматриваются как один из ключевых компонентов, способных повысить адаптивность, мотивацию и удобство работы студентов.</p>
+            <p style="margin-top: 1rem;">Результаты будут использованы при проектировании мобильного модуля и оценке эффективности в рамках диссертации.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        Педагогический технопарк «Кванториум им. К.Д. Ушинского»<br>
+        РГПУ им. А.И. Герцена · Проектная деятельность · 2026
+    </div>
+</footer>
+
+<script>
+    feather.replace();
+</script>
+</body>
+</html>
