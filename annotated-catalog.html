@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аннотированный каталог | Цифровая образовательная среда и проектная деятельность</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0B0E1A;
+            color: #EDF2FB;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #fff, #3B82F6, #A855F7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .subhead {
+            color: #9ca3af;
+            margin-bottom: 2rem;
+            border-left: 3px solid #3B82F6;
+            padding-left: 1rem;
+        }
+        .catalog-item {
+            background: rgba(18, 22, 35, 0.7);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: 0.2s;
+        }
+        .catalog-item:hover {
+            border-color: rgba(59,130,246,0.6);
+            background: rgba(20, 26, 45, 0.8);
+        }
+        .bib {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-bottom: 0.8rem;
+            border-left: 2px solid #3B82F6;
+            padding-left: 0.8rem;
+        }
+        .annotation {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(59,130,246,0.2);
+            padding: 0.2rem 0.7rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            color: #3B82F6;
+            text-decoration: none;
+            border: 1px solid rgba(59,130,246,0.4);
+            padding: 0.5rem 1.2rem;
+            border-radius: 2rem;
+            transition: 0.2s;
+        }
+        .back-link:hover {
+            background: rgba(59,130,246,0.2);
+        }
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6c7a91;
+            border-top: 1px solid rgba(59,130,246,0.2);
+            padding-top: 2rem;
+        }
+        @media (max-width: 680px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+        <h1>Аннотированный <span class="gradient-text">каталог</span></h1>
+        <a href="index.html" class="back-link"><i data-feather="arrow-left" width="16" height="16"></i> На главную</a>
+    </div>
+    <div class="subhead">
+        <i data-feather="book-open" width="14" height="14"></i> 12 источников по теме цифровой образовательной среды, проектной деятельности, мобильных и игровых технологий
+    </div>
+
+    <!-- 1 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="book" width="12" height="12"></i> Монография</div>
+        <div class="bib">Носкова Т.Н. Дидактика цифровой среды : монография / Т.Н. Носкова. – Санкт-Петербург : Изд-во РГПУ им. А.И. Герцена, 2020. – 383 с.</div>
+        <div class="annotation">В монографии представлен междисциплинарный подход к проектированию цифровой образовательной среды (ЦОС) на основе синтеза информатики, педагогики и психологии. Выделены три типа педагогических ресурсов: информационные, коммуникационные и управленческие. Обоснован переход от инструментального использования технологий к средовому подходу. Раскрываются условия достижения инновационных эффектов в обучении.</div>
+    </div>
+
+    <!-- 2 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="book" width="12" height="12"></i> Учебник</div>
+        <div class="bib">Носкова Т.Н. Педагогика цифрового образования : учебник / Т.Н. Носкова. – Санкт-Петербург : Изд-во РГПУ им. А.И. Герцена, 2021. – 320 с.</div>
+        <div class="annotation">В учебнике рассматриваются теоретико-методологические основы цифровой образовательной среды. Раскрываются педагогические условия эффективного функционирования ЦОС, формирование рефлексии и самоуправления в цифровой среде. Особое внимание уделяется роли коммуникации и обратной связи в профессиональной подготовке педагогов.</div>
+    </div>
+
+    <!-- 3 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Статья (Scopus)</div>
+        <div class="bib">Mburu T.K., Rong K., McColley C.J., Werth A. Methodological Foundations for AI-Driven Survey Question Generation // Journal of Engineering Education. – 2025. – Vol. 114. – arXiv:2505.01150.</div>
+        <div class="annotation">Статья посвящена методологическим основам генерации опросных вопросов с использованием искусственного интеллекта. Предложен фреймворк SQRA (Synthetic Question-Response Analysis) для итеративного тестирования и уточнения промптов. Выявлены типичные ошибки ИИ-генерации (избыточные формулировки, «сдвоенные» вопросы). Показана необходимость экспертной оценки при проектировании анкет обратной связи.</div>
+    </div>
+
+    <!-- 4 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Статья (РИНЦ)</div>
+        <div class="bib">Закотнова П.В. Организация обратной связи в процессе педагогического взаимодействия преподавателей и студентов в вузе // Педагогика. Вопросы теории и практики. – 2025. – Т. 10. – № 1. – С. 45–52.</div>
+        <div class="annotation">В статье анализируются сущностные характеристики обратной связи как элемента педагогического взаимодействия. Выделены критерии эффективной обратной связи: конструктивность, конкретика, персонализация, баланс. Обоснована значимость обратной связи для коррекции и совершенствования образовательных результатов.</div>
+    </div>
+
+    <!-- 5 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Статья (ВАК)</div>
+        <div class="bib">Подольская Т.А., Чепурнова Е.С. Представления об обратной связи у участников образовательного процесса // Вестник практической психологии образования. – 2024. – Т. 21. – № 3. – С. 77–83.</div>
+        <div class="annotation">На основе опроса 300 респондентов выявлены мотивирующие и демотивирующие факторы обратной связи. Показано, что формальная и неконкретная обратная связь не только бесполезна, но и снижает учебную мотивацию. Сформулированы рекомендации по проектированию опросных инструментов, учитывающих психологические особенности восприятия.</div>
+    </div>
+
+    <!-- 6 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Методическая разработка</div>
+        <div class="bib">Вайнштейн Ю.В. Бланк рефлексии в персонализированной адаптивной обучающей системе // Справочник научно-методических разработок ФГАОУ ДПО «Академия Минпросвещения России». – 2023. – С. 112–119.</div>
+        <div class="annotation">Рассматриваются подходы к проектированию анкет рефлексии как инструментов, требующих тонкой настройки под конкретный педагогический контекст. Подчёркивается, что универсальные опросники не работают. Предлагаются критерии оценки эффективности рефлексивных анкет.</div>
+    </div>
+
+    <!-- 7 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Статья (Scopus)</div>
+        <div class="bib">Dai W. et al. Assessing the proficiency of large language models in automatic feedback generation // Computers and Education: Artificial Intelligence. – 2024. – Vol. 7. – 100299.</div>
+        <div class="annotation">Сравнительное исследование эффективности GPT-3.5 и GPT-4 в генерации обратной связи на письменные работы студентов. Показано, что более новые модели дают лучшие результаты, но все требуют человеческого контроля. Обоснована необходимость гибридного подхода «человек + ИИ» в образовании.</div>
+    </div>
+
+    <!-- 8 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Статья (Scopus)</div>
+        <div class="bib">Banihashem S.K. et al. Pedagogical framework for hybrid intelligent feedback // Innovations in Education & Teaching International. – 2025. – DOI: 10.1080/14703297.2025.2499174.</div>
+        <div class="annotation">Предложен педагогический фреймворк «гибридной интеллектуальной обратной связи». Определены роли GenAI – как самостоятельного источника обратной связи или как части совместного процесса с преподавателем. Доказано, что оптимальной является модель, в которой ИИ выступает ассистентом, а человек – экспертом.</div>
+    </div>
+
+    <!-- 9 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Статья (Scopus)</div>
+        <div class="bib">Pahi K. et al. Enhancing Active Learning through Collaboration Between Human Teachers and Generative AI // Computers and Education Open. – 2024. – Vol. 7. – 100183.</div>
+        <div class="annotation">Эмпирическое исследование сотрудничества преподавателей и ChatGPT. Показано, что ИИ эффективен для мотивационной поддержки и генерации примеров, а преподаватели – для выявления концептуальных пробелов. Подтверждена значимость гибридного подхода.</div>
+    </div>
+
+    <!-- 10 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="file-text" width="12" height="12"></i> Статья (Scopus)</div>
+        <div class="bib">Weber F., Wambsganss T., Söllner M. Enhancing legal writing skills: The impact of formative feedback in a hybrid intelligence learning environment // British Journal of Educational Technology. – 2024. – DOI: 10.1111/bjet.13529.</div>
+        <div class="annotation">В полевом эксперименте (n=43) доказано, что гибридная система «ИИ + преподаватель» значимо улучшает качество студенческих работ по сравнению с традиционной обратной связью. Обоснована эффективность комбинированного подхода.</div>
+    </div>
+
+    <!-- 11 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="link" width="12" height="12"></i> Сайт / официальный документ</div>
+        <div class="bib">Федеральный проект «Цифровая образовательная среда» [Электронный ресурс] // Министерство просвещения РФ. – URL: https://edu.gov.ru/national-project/projects/cos/ (дата обращения: 07.06.2026).</div>
+        <div class="annotation">Официальный документ, определяющий цели, задачи и направления создания цифровой образовательной среды в Российской Федерации. Содержит описание ключевых мероприятий, показателей и ожидаемых результатов. Важный нормативный контекст для исследований в области ЦОС.</div>
+    </div>
+
+    <!-- 12 -->
+    <div class="catalog-item">
+        <div class="badge"><i data-feather="smartphone" width="12" height="12"></i> Статья (конференция)</div>
+        <div class="bib">Ткаченко А.О., Носкова Т.Н. Проектирование анкет обратной связи для апробации коробочных образовательных продуктов в педагогическом технопарке с использованием ИИ // Новые образовательные стратегии в открытом цифровом пространстве : сборник трудов XXI Международной научно-практической конференции. – Санкт-Петербург : РГПУ им. А.И. Герцена, 2026. – С. 45–52.</div>
+        <div class="annotation">В статье рассматривается гибридный подход к проектированию анкет обратной связи для апробации коробочных образовательных продуктов (КОП). Представлены результаты сравнительного эксперимента с языковыми моделями DeepSeek, YandexGPT и ChatGPT. Обоснована необходимость сочетания ИИ-генерации с экспертной доработкой.</div>
+    </div>
+
+    <div class="subhead" style="margin-top: 1rem;">
+        <i data-feather="check-circle" width="14" height="14"></i> Всего источников: 12 (монографии – 2, учебник – 1, статьи – 8, официальный сайт – 1). Каждая аннотация содержит библиографическое описание по ГОСТ Р 7.0.100-2018 и краткое содержание (проблематика, выводы, значимость).
+    </div>
+
+    <footer>
+        <i data-feather="user" width="14" height="14"></i> Алиса Олеговна Ткаченко · Магистрант 1 курса<br>
+        <i data-feather="book" width="14" height="14"></i> Магистерская программа «Цифровая образовательная среда и цифровые технологии»<br>
+        <i data-feather="map-pin" width="14" height="14"></i> РГПУ им. А.И. Герцена · Педагогический технопарк «Кванториум им. К.Д. Ушинского» · 2026
+    </footer>
+</div>
+<script>
+    feather.replace();
+</script>
+</body>
+</html>
