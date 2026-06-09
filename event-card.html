@@ -7,188 +7,86 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e293b; line-height: 1.5; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        .hero {
+            background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(248,250,252,0.96)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover; background-position: center;
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid #eef2ff;
         }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0B0E1A;
-            color: #EDF2FB;
-            line-height: 1.4;
-        }
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #FFFFFF 20%, #3B82F6 70%, #A855F7 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .glass-card {
-            background: rgba(18, 22, 35, 0.65);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 2rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin: 1.5rem 0 1rem;
-            border-left: 4px solid #3B82F6;
-            padding-left: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: rgba(0,0,0,0.3);
-            border-radius: 1.5rem;
-            overflow: hidden;
-        }
-        .tech-table th, .tech-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(59,130,246,0.2);
-            vertical-align: top;
-        }
-        .tech-table th {
-            background: rgba(59,130,246,0.2);
-            font-weight: 600;
-            width: 25%;
-        }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: rgba(59,130,246,0.25);
-            padding: 0.2rem 0.8rem;
-            border-radius: 2rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            color: #3B82F6;
-            text-decoration: none;
-            border: 1px solid rgba(59,130,246,0.4);
-            padding: 0.5rem 1.2rem;
-            border-radius: 2rem;
-            transition: 0.2s;
-        }
-        .back-link:hover {
-            background: rgba(59,130,246,0.2);
-        }
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #8696B0;
-            border-top: 1px solid rgba(59,130,246,0.2);
-            padding-top: 2rem;
-        }
-        @media (max-width: 700px) {
-            .container { padding: 1rem; }
-            h1 { font-size: 2rem; }
-            .tech-table th, .tech-table td { display: block; width: 100%; }
-            .tech-table th { margin-top: 0.5rem; }
-        }
+        .site-title { font-size: 0.7rem; letter-spacing: 4px; font-weight: 600; color: #3b82f6; margin-bottom: 1rem; text-transform: uppercase; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; color: #0f172a; margin-bottom: 0.5rem; }
+        .hero-highlight { background: linear-gradient(120deg, #3b82f6, #8b5cf6); background-clip: text; -webkit-background-clip: text; color: transparent; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem; color: #3b82f6; text-decoration: none; border: 1px solid #cbd5e1; padding: 0.5rem 1.2rem; border-radius: 2rem; font-size: 0.9rem; transition: 0.2s; }
+        .back-link:hover { background: #f8fafc; border-color: #3b82f6; }
+        .section-card { background: #ffffff; border-radius: 1.5rem; padding: 2rem; margin: 2rem 0; border: 1px solid #f0f2f5; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
+        h2 { font-size: 1.6rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; text-transform: uppercase; letter-spacing: -0.3px; }
+        .tech-table { width: 100%; border-collapse: collapse; background: #ffffff; border-radius: 1rem; overflow: hidden; }
+        .tech-table th, .tech-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #eef2ff; vertical-align: top; }
+        .tech-table th { background: #f8fafc; font-weight: 600; width: 25%; }
+        .badge-light { background: #eef2ff; color: #3b82f6; border-radius: 2rem; padding: 0.2rem 0.9rem; font-size: 0.7rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; text-transform: uppercase; margin-bottom: 1rem; }
+        ul { margin-left: 1.5rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.5rem; }
+        footer { background: #fafcff; border-top: 1px solid #eef2ff; margin-top: 3rem; padding: 2rem; text-align: center; font-size: 0.8rem; color: #64748b; }
+        @media (max-width: 780px) { .container { padding: 0 1rem; } .hero h1 { font-size: 2rem; } .tech-table th, .tech-table td { display: block; width: 100%; } .tech-table th { margin-top: 0.5rem; } }
     </style>
 </head>
 <body>
-<div class="container">
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-        <h1>Технологическая карта<br><span class="gradient-text">внеклассного мероприятия</span></h1>
-        <a href="index.html" class="back-link"><i data-feather="arrow-left" width="16" height="16"></i> На главную</a>
+<div class="hero">
+    <div class="container">
+        <div class="site-title">MOBILE & GAMES · RESEARCH LAB</div>
+        <h1>ТЕХНОЛОГИЧЕСКАЯ КАРТА<br><span class="hero-highlight">ВНЕКЛАССНОГО МЕРОПРИЯТИЯ</span></h1>
+        <a href="index.html" class="back-link"><i data-feather="arrow-left" width="16" height="16"></i> НА ГЛАВНУЮ</a>
     </div>
-
-    <div class="glass-card">
-        <div class="badge"><i data-feather="smartphone" width="12" height="12"></i> Игровые и мобильные технологии</div>
-        <h2 style="margin-top: 0;"><i data-feather="map" width="22" height="22"></i> «Мобильный квест по педагогическому технопарку: проектная деятельность в цифре»</h2>
-        <p style="margin-top: 1rem;"><strong>Цель мероприятия:</strong> формирование у студентов целостного представления о проектной деятельности в педагогическом технопарке с использованием мобильных и игровых технологий, развитие навыков командной работы, цифровой грамотности и рефлексии.</p>
+</div>
+<main class="container">
+    <div class="section-card">
+        <div class="badge-light"><i data-feather="smartphone" width="12" height="12"></i> ИГРОВЫЕ И МОБИЛЬНЫЕ ТЕХНОЛОГИИ</div>
+        <h2><i data-feather="map" width="22" height="22"></i> «МОБИЛЬНЫЙ КВЕСТ ПО ПЕДАГОГИЧЕСКОМУ ТЕХНОПАРКУ: ПРОЕКТНАЯ ДЕЯТЕЛЬНОСТЬ В ЦИФРЕ»</h2>
+        <p><strong>Цель мероприятия:</strong> формирование у студентов целостного представления о проектной деятельности в педагогическом технопарке с использованием мобильных и игровых технологий, развитие навыков командной работы, цифровой грамотности и рефлексии.</p>
     </div>
-
-    <div class="glass-card">
-        <h2><i data-feather="info" width="22" height="22"></i> Основная информация</h2>
+    <div class="section-card">
+        <h2><i data-feather="info" width="22" height="22"></i> ОСНОВНАЯ ИНФОРМАЦИЯ</h2>
         <table class="tech-table">
             <tr><th>Форма проведения</th><td>Командный квест с элементами геймификации и использованием мобильных устройств</td></tr>
             <tr><th>Целевая аудитория</th><td>Студенты педагогических направлений (1–2 курс), участники проектной деятельности технопарка</td></tr>
             <tr><th>Продолжительность</th><td>90–120 минут</td></tr>
             <tr><th>Мобильные технологии</th><td>QR-коды, мобильное приложение-трекер (Telegram-бот), облачные формы (Google Forms), интерактивные задания на планшетах/смартфонах</td></tr>
-            <tr><th>Игровые механики</th><td>Система баллов за скорость и качество, бонусные уровни, «ачивки» (достижения), таймер, соревновательный рейтинг команд</td></tr>
+            <tr><th>Игровые механики</th><td>Система баллов за скорость и качество, бонусные уровни, «ачивки», таймер, соревновательный рейтинг команд</td></tr>
         </table>
     </div>
-
-    <div class="glass-card">
-        <h2><i data-feather="layers" width="22" height="22"></i> Этапы мероприятия и их технологическое наполнение</h2>
+    <div class="section-card">
+        <h2><i data-feather="layers" width="22" height="22"></i> ЭТАПЫ МЕРОПРИЯТИЯ</h2>
         <table class="tech-table">
-            <tr><th>Этап (время)</th><th>Содержание и деятельность участников</th><th>Мобильные / игровые элементы</th></tr>
-            <tr><td><strong>1. Вводный (10 мин)</strong></td><td>Приветствие, деление на команды, выдача легенды квеста. Объяснение правил и системы баллов.</td><td><i data-feather="smartphone" width="14" height="14"></i> QR-код для входа в мобильное приложение-трекер (фиксация старта, таймер).</td></tr>
-            <tr><td><strong>2. Станция «Идея → Паспорт проекта» (20 мин)</strong></td><td>Команды генерируют идею коробочного образовательного продукта и заполняют цифровой паспорт проекта (тема, цель, целевая аудитория).</td><td><i data-feather="file-text" width="14" height="14"></i> Google Forms на мобильных устройствах. Баллы за полноту, бонус за оригинальность.</td></tr>
-            <tr><td><strong>3. Станция «Ресурсы и технологии» (20 мин)</strong></td><td>Участники находят в технопарке информацию о доступных технологиях (3D-печать, лазерная резка, программирование) и соотносят с идеей.</td><td><i data-feather="camera" width="14" height="14"></i> QR-коды на оборудовании ведут на видео-инструкции. Приложение предлагает выбрать технологии – система подсказок.</td></tr>
-            <tr><td><strong>4. Станция «Апробация и обратная связь» (25 мин)</strong></td><td>Команды имитируют апробацию продукта: придумывают 3 вопроса для сбора обратной связи от школьников и заполняют чек-лист.</td><td><i data-feather="edit" width="14" height="14"></i> Мобильная анкета с автоматической группировкой ответов. Игровая механика «быстрый опрос» на время.</td></tr>
-            <tr><td><strong>5. Финал. Рефлексия и награждение (15–20 мин)</strong></td><td>Презентация результатов, подсчёт баллов в приложении, обсуждение, вручение «ачивок» в цифровом виде.</td><td><i data-feather="bar-chart-2" width="14" height="14"></i> Мобильное приложение показывает рейтинг команд в реальном времени. Сертификаты с QR-кодами.</td></tr>
+            <tr><th>Этап</th><th>Содержание</th><th>Мобильные / игровые элементы</th></tr>
+            <tr><td>1. Вводный (10 мин)</td><td>Приветствие, деление на команды, легенда квеста</td><td><i data-feather="smartphone" width="14" height="14"></i> QR-код для входа в мобильное приложение-трекер</td></tr>
+            <tr><td>2. Станция «Идея → Паспорт проекта» (20 мин)</td><td>Генерация идеи КОП, заполнение цифрового паспорта</td><td><i data-feather="file-text" width="14" height="14"></i> Google Forms, баллы за полноту</td></tr>
+            <tr><td>3. Станция «Ресурсы и технологии» (20 мин)</td><td>Поиск информации о технологиях технопарка</td><td><i data-feather="camera" width="14" height="14"></i> QR-коды на оборудовании, система подсказок</td></tr>
+            <tr><td>4. Станция «Апробация и обратная связь» (25 мин)</td><td>Имитация апробации, создание чек-листа обратной связи</td><td><i data-feather="edit" width="14" height="14"></i> Мобильная анкета, быстрый опрос на время</td></tr>
+            <tr><td>5. Финал (15–20 мин)</td><td>Презентация результатов, награждение</td><td><i data-feather="bar-chart-2" width="14" height="14"></i> Рейтинг в реальном времени, QR-сертификаты</td></tr>
         </table>
     </div>
-
-    <div class="glass-card">
-        <h2><i data-feather="award" width="22" height="22"></i> Игровые механики и балльная система</h2>
+    <div class="section-card">
+        <h2><i data-feather="award" width="22" height="22"></i> ИГРОВЫЕ МЕХАНИКИ И БАЛЛЬНАЯ СИСТЕМА</h2>
         <table class="tech-table">
             <tr><th>Действие</th><th>Баллы</th><th>Дополнительно</th></tr>
             <tr><td>Заполнение паспорта проекта (полнота)</td><td>до 20</td><td>+5 за нестандартную идею</td></tr>
             <tr><td>Скорость прохождения станции</td><td>бонус 10 первым трём командам</td><td>таймер в приложении</td></tr>
             <tr><td>Качество вопросов для обратной связи</td><td>до 15</td><td>оценивает эксперт</td></tr>
-            <tr><td>«Ачивки» (находчивость, креативность)</td><td>5–10 за каждую</td><td>автоматическое начисление модератором</td></tr>
+            <tr><td>«Ачивки» (находчивость, креативность)</td><td>5–10 за каждую</td><td>автоматическое начисление</td></tr>
         </table>
-        <p style="margin-top: 1rem;"><strong><i data-feather="gift" width="16" height="16"></i> Призовой фонд:</strong> цифровые бейджи, доступ к шаблонам технологических карт, приоритетная запись на мастер-классы технопарка.</p>
+        <p style="margin-top: 1rem;"><strong><i data-feather="gift" width="16" height="16"></i> Призовой фонд:</strong> цифровые бейджи, доступ к шаблонам, приоритетная запись на мастер-классы.</p>
     </div>
-
-    <div class="glass-card">
-        <h2><i data-feather="smartphone" width="22" height="22"></i> Примеры мобильных приложений, использованных в мероприятии</h2>
-        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-            <li><i data-feather="message-circle" width="14" height="14"></i> <strong>Telegram-бот «ProjectTrack»</strong> – регистрация команд, фиксация этапов, рассылка уведомлений, мгновенные опросы.</li>
-            <li><i data-feather="file" width="14" height="14"></i> <strong>Google Forms / Jotform</strong> – сбор паспортов проектов и чек-листов обратной связи (интеграция в QR-код).</li>
-            <li><i data-feather="users" width="14" height="14"></i> <strong>Mentimeter</strong> – голосование за лучшую идею, облако слов для рефлексии.</li>
-            <li><i data-feather="clock" width="14" height="14"></i> <strong>Таймеры (Timer Tab)</strong> – отслеживание времени этапов.</li>
-        </ul>
-        <p>Таким образом, мобильные технологии не просто «дополняют», а становятся основой для организации командного взаимодействия, быстрой фиксации результатов и создания соревновательной атмосферы.</p>
-    </div>
-
-    <div class="glass-card">
-        <h2><i data-feather="check-circle" width="22" height="22"></i> Ожидаемые результаты мероприятия</h2>
-        <ul>
-            <li>Участники освоят этапы проектной деятельности на примере игровой имитации.</li>
-            <li>Познакомятся с цифровыми инструментами для сбора обратной связи и паспортизации проектов.</li>
-            <li>Повысят мотивацию к участию в реальных проектах технопарка за счёт соревновательного формата.</li>
-            <li>Создадут собственные мини-проекты (паспорт + чек-лист апробации), которые могут быть доработаны в рамках дисциплины.</li>
-        </ul>
-    </div>
-
-    <footer>
+</main>
+<footer>
+    <div class="container">
         <i data-feather="user" width="14" height="14"></i> Алиса Олеговна Ткаченко · Магистрант 1 курса<br>
         <i data-feather="book" width="14" height="14"></i> Магистерская программа «Цифровая образовательная среда и цифровые технологии»<br>
         <i data-feather="map-pin" width="14" height="14"></i> РГПУ им. А.И. Герцена · Педагогический технопарк «Кванториум им. К.Д. Ушинского» · 2026
-    </footer>
-</div>
-<script>
-    feather.replace();
-</script>
+    </div>
+</footer>
+<script>feather.replace();</script>
 </body>
 </html>
